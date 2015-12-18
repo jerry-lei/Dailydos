@@ -12,4 +12,4 @@ To initially start the server, you should input
 ```
 python app.py
 ```
-in the terminal. However, we recommend simply visiting the site we are hosting with Digital Ocean. The URL is [taskr.puzzled.ru](http://taskr.puzzled.ru/).
+in the terminal. However, we recommend simply visiting the site we are hosting with Digital Ocean. The address is [taskr.puzzled.ru](http://taskr.puzzled.ru/).
