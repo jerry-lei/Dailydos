@@ -13,3 +13,27 @@ To initially start the server, you should input
 python app.py
 ```
 in the terminal. However, we recommend simply visiting the site we are hosting with Digital Ocean. The address is [taskr.puzzled.ru](http://taskr.puzzled.ru/).
+
+Team Roles:
+<table>
+  <tr>
+    <th>Person</th>
+    <th>Role</th>
+  </tr>
+  <tr>
+    <td>Jerry Lei</td>
+    <td>Leader</td>
+  </tr>
+  <tr>
+    <td>Alex Sosnovsky</td>
+    <td>UX</td>
+  </tr>
+  <tr>
+    <td>Liam Daly</td>
+    <td>Middleware</td>
+  </tr>
+  <tr>
+    <td>Wayez Chowdhury</td>
+    <td>Backend</td>
+  </tr>
+</table>
