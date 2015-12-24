@@ -1,0 +1,10 @@
+LINKS USED:
+\Deploy flask app on gunicorn/nginx:
+\\https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
+
+
+
+
+NOTES TO GROUP:
+\PM me for new login info
+\When updating any of the files on /home/group/Dailydos, '$ sudo reload dailydos'
