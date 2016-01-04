@@ -15,7 +15,7 @@ Goals:
 - [ ] Database for tasks
 - [ ] Beautify
 
-The address we are currently using is [taskr.puzzled.ru](http://taskr.puzzled.ru/).
+The address we are currently using is [104.131.83.105/](http://104.131.83.105/).
 
 Team Roles:
 <table>
