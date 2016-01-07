@@ -25,8 +25,9 @@ def authenticate(username, password):
     connection = MongoClient()
     cursor = database.logins.find({'username': username, 'password':password})
     for r in cursor:
-        return True;
-    return False;
+        return True
+    return False
+    connection.close()
 
 def create_user(username, password):
     """
@@ -34,7 +35,16 @@ def create_user(username, password):
     Checks db if username exists. Puts username and password into db.
     Returns list of codes located in error_code_list, empty list if all conditions met
     """
-    error_codes = [] #add to using error_codes.append(int)
-    uname = username
-    pword = password
+    ans = database.logins.find({username:True})
+    for r in ans:
+        return False
+    d = {'username': username, 'password': password}
+    database.logins.insert(d)
+    connection = MongoClient()
+    db = connection['logins']
+    ans = db.logins.find({'username': username}).count()
+    if check != 0:
+        return False
+    return True
+    connection.close()
     
