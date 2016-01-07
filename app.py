@@ -5,16 +5,15 @@ application = Flask(__name__)
 
 @application.route("/")
 def home():
-    return render_template('home.html')
+    return render_template('home2.html')
+    
 
-@app.route("/logout")
+@application.route("/logout")
 def logout():
     session['user'] = "Anonymous"
     session['logged_in'] = False
     return redirect('/')
 
 if __name__=="__main__":
-    app.debug=True
-    app.secret_key = "Wayez is awesome"
     application.run(host='0.0.0.0')
 
