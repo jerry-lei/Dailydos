@@ -1,12 +1,12 @@
 from flask import Flask, render_template
-import login_utils
+#import login_utils
 application = Flask(__name__)
 
 
-@application.route("/", methods=['GET','POST'])
+@application.route("/")#, methods=['GET','POST'])
 def home():
-    if request.method=="GET":
-        return render_template('home2.html')
+#    if request.method=="GET":
+    return render_template('home.html')
 
     '''  else:
         button = request.form['button']

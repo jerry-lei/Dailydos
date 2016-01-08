@@ -1,71 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--<link rel="shortcut icon" href="favicon.ico">-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Daily Dos</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- Custom styles for this template -->
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+<script type="text/javascript" src="http://ajax.googleapis.com/
+ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="application/javascript">
+$(document).ready(function()
+{
+	
+$(".tab").click(function()
+{
+var X=$(this).attr('id');
+ 
+if(X=='signup')
+{
+$("#login").removeClass('select');
+$("#signup").addClass('select');
+$("#loginbox").slideUp();
+$("#signupbox").slideDown();
+}
+else
+{
+$("#signup").removeClass('select');
+$("#login").addClass('select');
+$("#signupbox").slideUp();
+$("#loginbox").slideDown();
+}
+ 
+});
+
+});
+</script>
 <style>
 body
-{ 
-background-image:url('''+img+''');
-background-repeat:no-repeat;
-background-attachment:fixed;
-background-position:center
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px; background-color:#6495ED; 
 }
-body {
-    font-family: Futura, Helvetica, sans-serif;
-    text-align: Center;
-    <!--color: rgb(255,255,255);-->
+#container
+{
+	width:350px
 }
+#tabbox
+{
+	height:40px
+}
+#panel
+{
+	background-color:#FFF;
+	height:300px;
+	
+}
+.tab
+{
+background: #dedede;
+display: block;
+height: 40px;
+line-height: 40px;
+text-align: center;
+width: 80px;
+float: right;
+font-weight: bold;
+-webkit-border-top-left-radius: 4px;
+-webkit-border-top-right-radius: 4px;
+-moz-border-radius: 4px 4px 0px 0px;
+}
+a
+{
+color: #000;
+margin: 0;
+padding: 0;
+text-decoration: none;
+}
+.signup
+{
+	margin-left:8px;
+	
+}
+.select
+{
+	background-color:#FFF;
+	
+}
+#loginbox
+{
+	height:300px;
+	padding:10px;
+}
+#signupbox
+{
+	height:300px;
+	padding:10px;
+	display:none;
+}
+
+
 </style>
 </head>
 
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Daily Dos</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/posts">Home</a></li>
-	    <li><a href="/register">Sign Up</a><li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          </ul>
-      </div>
-    </nav>
-<br>
-<br>
-<br>
-<br>
-  <h1><font size="+10">Daily Dos</font></h1>
-  <h2>The universal student task manager.</h2>
-  <p>
-<form method="post">
-  <div class="container">
-    <form class="form-signin">
-      <input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
-    </div>
-    <div class="container">
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
-    </div>
-    <br>
-<div class="container">
-<input type="submit" class="btn btn-smll btn-primary btn-block" name ="button" value="Login">
+<div style="margin:40px">
+<div id="container">
+<div id="tabbox">
+<a href="#" id="signup" class="tab signup">Signup</a>
+<a href="#" id="login" class="tab select">Login</a>
 </div>
+
+<div id="panel">
+<div id="loginbox">
+<h1>Login</h1>
+<form method="post">
+  Username:<br>
+  <input type="text" name="login_username">
+  <br>
+  Password:<br>
+  <input type="password" name="login_password">
+  <br>
+  <input type="submit" value="Login">
 </form>
+</div>
+<div id="signupbox">
+<h1>Signup</h1>
+<form method="post">
+  Username:<br>
+  <input type="text" name="new_username">
+  <br>
+  Password:<br>
+  <input type="password" name="new_password">
+  <br>
+  Confirm Password:<br>
+  <input type="password" name="new_confirm_password">
+  <br>
+  <input type="submit" value="Create Account">
+</form>
+</div>
+</div>
+
+</div>
+</div>
 </body>
 </html>
