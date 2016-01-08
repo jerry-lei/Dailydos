@@ -119,7 +119,15 @@ text-decoration: none;
   <br>
   <input type="submit" value="Login">
 </form>
+
+<div class = "error_login">
+{% if error %}
+  <font color = "red">{{errorL}}</font>
 </div>
+{% end if %}
+</div>
+
+
 <div id="signupbox">
 <h1>Signup</h1>
 <form method="post">
@@ -134,10 +142,20 @@ text-decoration: none;
   <br>
   <input type="submit" value="Create Account">
 </form>
+
+<div class = "error_create">
+{% if success %}
+<p><font color = "green">{{successC}}</font></p>
+{% endif %}
+{% if errorC %}
+<p><font color = "red">{{errorC}}</font></p>
+{% endif %}
+</div>
+
+
 </div>
 </div>
 
-</div>
 </div>
 </body>
 </html>

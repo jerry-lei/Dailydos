@@ -7,13 +7,13 @@ application = Flask(__name__)
 def home():
 #    if request.method=="GET":
     return render_template('home.html')
-
-    '''  else:
+'''
+    else:
         button = request.form['button']
         if button == "Create Account":
-            newUser = request.form['newUser']
-            newPass = request.form['newPass']
-            newPassC = request.form['newPassC']
+            new_user = request.form['new_username']
+            new_pass = request.form['new_password']
+            new_pass_confirm = request.form['new_confirm_password']
             #password match check
             if (newPass == newPassC):
                 #username and password lengths check
