@@ -31,9 +31,9 @@ def home():
         #Login
         #if credentials valid, log them in with session
         if button == "Login":
-            uname = request.form['username']
-            pword = request.form['password']
-            if module.authenticate(uname,pword):
+            user = request.form['username']
+            password = request.form['password']
+            if login_utils.authenticate(user,password):
                 if 'n' not in session:
                     session['n'] = uname
                     return redirect(url_for('home'))
