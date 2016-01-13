@@ -3,32 +3,31 @@ from flask import Flask, render_template
 application = Flask(__name__)
 
 
-@application.route("/")#, methods=['GET','POST'])
+@application.route("/", methods=['GET','POST'])
 def home():
-#    if request.method=="GET":
-    return render_template('home.html')
-'''
+    if request.method=="GET":
+        return render_template('home.html')
     else:
         button = request.form['button']
         if button == "Create Account":
-            new_user = request.form['new_username']
-            new_pass = request.form['new_password']
-            new_pass_confirm = request.form['new_confirm_password']
+            user = request.form['new_username']
+            password = request.form['new_password']
+            confirm = request.form['new_confirm_password']
             #password match check
-            if (newPass == newPassC):
+            if (password == confirm):
                 #username and password lengths check
-                if len(newUser)<4:
+                if len(user)<4:
                     return render_template('home.html',error2="Username must be longer than 4 characters")
-                if len(newPass)<4:
-                    return render_template('home.html',error2="Password must be longer than 4 characters")
+                if len(password)<8:
+                    return render_template('home.html',error2="Password must be longer than 8 characters")
                 #account created successfully
-                if  module.newUser(newUser,newPass):
-                    return render_template('home.html',success="Account created!")
+                if  login_utils.create_user(user,password):
+                    return render_template('home.html',success="Account successfully created! Login to access DailyDos.")
                 #username taken error
                 else:
-                    return render_template('home.html',error2="Username taken")            
+                    return render_template('home.html',error2="Username already in use. Please chose a different username")            
             else:
-                return render_template('home.html',error2="Passwords do not match!")
+                return render_template('home.html',error2="Passwords do not match")
         #Login
         #if credentials valid, log them in with session
         if button == "Login":
@@ -40,7 +39,7 @@ def home():
                     return redirect(url_for('home'))
                 #else renders login w/ error message
             else:
-                return render_template("home.html",error="Invalid Username or Password")'''    
+                return render_template("home.html",error="Invalid Username or Password")
 
 @application.route("/logout")
 def logout():
