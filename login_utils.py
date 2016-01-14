@@ -10,9 +10,9 @@ def clean(text):
     return re.sub(r'\W+', '', text)
 
 def if_all_alphanumeric(username, password):
-    if !username.isalnum():
+    if username.isalnum():
         return False
-    if !password.isalnum():
+    if password.isalnum():
         return False
     return True
 
