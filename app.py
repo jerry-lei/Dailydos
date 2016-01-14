@@ -48,9 +48,10 @@ def logout():
     return redirect('/')
 
 if __name__=="__main__":
-    """
+    
     application.run(host='0.0.0.0')
     """
     application.debug = True
     application.secret_key = "onetwothreefour"
     application.run(host='0.0.0.0', port = 5000)
+    """

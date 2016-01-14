@@ -9,12 +9,6 @@ database = connection['database']
 def clean(text):
     return re.sub(r'\W+', '', text)
 
-def if_all_alphanumeric(username, password):
-    if username.isalnum():
-        return False
-    if password.isalnum():
-        return False
-    return True
 
 def authenticate(username, password):
     """
