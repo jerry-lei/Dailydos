@@ -2,14 +2,11 @@ from flask import Flask, render_template
 import login_utils
 application = Flask(__name__)
 
-@application.route"/testserver")
-def test():
-    return "hello"
 
-
-@application.route("/", methods=['GET','POST'])
+@application.route("/")#, methods=['GET','POST'])
 def home():
-    if request.method=="GET":
+    return render_template('home.html')
+"""    if request.method=="GET":
         return render_template('home.html')
     else:
         button = request.form['button']
@@ -45,6 +42,7 @@ def home():
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
 
+"""
 
 if __name__=="__main__":    
     application.run(host='0.0.0.0')
