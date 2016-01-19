@@ -6,6 +6,7 @@ import re
 connection = MongoClient()
 database = connection['database']
 
+
 def clean(text):
     return re.sub(r'\W+', '', text)
 

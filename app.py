@@ -37,11 +37,10 @@ def home():
             if login_utils.authenticate(user,password):
                 if 'n' not in session:
                     session['n'] = user
-                    redirect(url_for('home'))
+                    return redirect(url_for('home'))
                 #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
-
 
 
 if __name__=="__main__":
