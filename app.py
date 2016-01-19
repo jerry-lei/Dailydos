@@ -1,12 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import login_utils
 application = Flask(__name__)
 
 
-@application.route("/")#, methods=['GET','POST'])
+@application.route("/", methods=['GET','POST'])
 def home():
-    return render_template('home.html')
-"""    if request.method=="GET":
+#    return render_template('home.html')
+    if request.method=="GET":
         return render_template('home.html')
     else:
         button = request.form['button']
@@ -37,12 +37,12 @@ def home():
             if login_utils.authenticate(user,password):
                 if 'n' not in session:
                     session['n'] = uname
-                    return redirect(url_for('home'))
+                    return "hello"#redirect(url_for('home'))
                 #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
 
-"""
+
 
 if __name__=="__main__":    
     application.run(host='0.0.0.0')
