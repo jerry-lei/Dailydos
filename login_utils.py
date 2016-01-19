@@ -37,7 +37,7 @@ def create_user(username, password):
     connection = MongoClient()
     db = connection['logins']
     ans = db.logins.find({'username': username}).count()
-    if check != 0:
+    if ans != 0:
         return False
     return True
     connection.close()
