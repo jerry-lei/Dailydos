@@ -37,7 +37,7 @@ def home():
             if login_utils.authenticate(user,password):
                 if 'n' not in session:
                     session['n'] = user
-                    return "hello"#redirect(url_for('home'))
+                    redirect(url_for('home'))
                 #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
@@ -45,10 +45,9 @@ def home():
 
 
 if __name__=="__main__":
-    """
     application.run(host='0.0.0.0')
     """
     application.debug = True
     application.secret_key = "onetwothreefour"
     application.run(host='0.0.0.0', port = 5000)
-
+    """

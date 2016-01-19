@@ -119,9 +119,8 @@ text-decoration: none;
   <br>
   <input id="button" name="button" type="submit" value="Login">
 </form>
-
-<div class = "error_login">
 {% if errorL %}
+<div class = "error_login">
 <font color = "red">{{errorL}}</font>
 </div>
 {% endif %}
@@ -143,15 +142,14 @@ text-decoration: none;
   <input id="button" name="button" type="submit" value="Create Account">
 </form>
 
-<div class = "error_create">
 {% if successC %}
+<div class = "error_create">
 <p><font color = "green">{{successC}}</font></p>
 {% endif %}
 {% if errorC %}
 <p><font color = "red">{{errorC}}</font></p>
-{% endif %}
 </div>
-
+{% endif %}
 
 </div>
 </div>
