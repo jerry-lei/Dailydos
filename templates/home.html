@@ -29,7 +29,6 @@ $("#loginbox").slideDown();
 }
  
 });
-
 });
 </script>
 <style>
@@ -60,11 +59,11 @@ height: 40px;
 line-height: 40px;
 text-align: center;
 width: 80px;
-float: right;
+float: left;
 font-weight: bold;
--webkit-border-top-left-radius: 4px;
--webkit-border-top-right-radius: 4px;
--moz-border-radius: 4px 4px 0px 0px;
+-webkit-border-top-left-radius: 0px;
+-webkit-border-top-right-radius: 30px;
+-moz-border-radius: 0px 30px 0px 0px;
 }
 a
 {
@@ -73,7 +72,7 @@ margin: 0;
 padding: 0;
 text-decoration: none;
 }
-.signup
+.login
 {
 	margin-left:8px;
 	
@@ -94,8 +93,6 @@ text-decoration: none;
 	padding:10px;
 	display:none;
 }
-
-
 </style>
 </head>
 
@@ -112,48 +109,32 @@ text-decoration: none;
 <h1>Login</h1>
 <form method="post">
   Username (email):<br>
-  <input type="email" name="login_username">
+  <input type="email" name="username">
   <br>
   Password:<br>
-  <input type="password" name="login_password">
+  <input type="password" name="password">
   <br>
-  <input id="button" name="button" type="submit" value="Login">
+  <input type="submit" value="Submit">
 </form>
-{% if errorL %}
-<div class = "error_login">
-<font color = "red">{{errorL}}</font>
 </div>
-{% endif %}
-</div>
-
-
 <div id="signupbox">
 <h1>Signup</h1>
 <form method="post">
-  Username:<br>
-  <input type="text" name="new_username">
+  Username (email):<br>
+  <input type="text" name="username">
   <br>
   Password:<br>
-  <input type="password" name="new_password">
+  <input type="password" name="password">
   <br>
   Confirm Password:<br>
-  <input type="password" name="new_confirm_password">
+  <input type="password" name="confirm password">
   <br>
-  <input id="button" name="button" type="submit" value="Create Account">
+  <input type="submit" value="Submit">
 </form>
-
-{% if successC %}
-<div class = "error_create">
-<p><font color = "green">{{successC}}</font></p>
-{% endif %}
-{% if errorC %}
-<p><font color = "red">{{errorC}}</font></p>
-</div>
-{% endif %}
-
 </div>
 </div>
 
+</div>
 </div>
 </body>
 </html>
