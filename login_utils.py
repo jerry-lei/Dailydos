@@ -6,7 +6,6 @@ import re
 connection = MongoClient()
 database = connection['database']
 
-
 def clean(text):
     return re.sub(r'\W+', '', text)
 
@@ -18,7 +17,8 @@ def authenticate(username, password):
     Returns list of codes located in error_code_list, empty list if all conditions met
     """
     connection = MongoClient()
-    cursor = database.logins.find({'username': username, 'password':password})
+    db = connection['logins']
+    cursor = db.logins.find({'username': username, 'password':password})
     for r in cursor:
         return True
     return False

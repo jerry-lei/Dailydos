@@ -30,15 +30,13 @@ def home():
             else:
                 return render_template('home.html',errorC="Passwords do not match")
         #Login
-        #if credentials valid, log them in with session
         if button == "Login":
             user = request.form['login_username']
             password = request.form['login_password']
             if login_utils.authenticate(user,password):
-                if 'n' not in session:
-                    session['n'] = user
-                    return redirect(url_for('home'))
-                #else renders login w/ error message
+                if 'user' not in session:
+                    session['user'] = user
+                    return session['user']
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
 
