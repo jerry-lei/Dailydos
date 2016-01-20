@@ -1,45 +1,22 @@
-from pymongo import MongoClient
-import re
-#need to switch to mongo for server-sided scripts
-#use string.isalnum() checks for alphanumeric and spaces
-
-connection = MongoClient()
-database = connection['database']
-
-def clean(text):
-    return re.sub(r'\W+', '', text)
+import sqlite3
 
 
-def authenticate(username, password):
-    """
-    Parameters: Username, Password
-    Checks db if username matches password
-    Returns list of codes located in error_code_list, empty list if all conditions met
-    """
-    connection = MongoClient()
-    db = connection['logins']
-    cursor = db.logins.find({'username': username, 'password':password})
-    for r in cursor:
+def authenticate(uname,pword):
+    connection = sqlite3.connect("../login.db")
+    c = connection.cusor()
+    ans = c.execute('select * from logins where username = "' + uname + '" and password = "' + pword + '";')
+    for r in ans:
         return True
     return False
-    connection.close()
 
-def create_user(username, password):
-    """
-    Parameters: Username, Password
-    Checks db if username exists. Puts username and password into db.
-    Returns list of codes located in error_code_list, empty list if all conditions met
-    """
-    ans = database.logins.find({username:True})
+def create_user(uname,pword):
+    connection = sqlite3.connect("../login.db")
+    c = connection.cursor()
+    ans = c.execute('select * from logins where username = "' + uname + '";')
     for r in ans:
         return False
-    d = {'username': username, 'password': password}
-    database.logins.insert(d)
-    connection = MongoClient()
-    db = connection['logins']
-    ans = db.logins.find({'username': username}).count()
-    if ans != 0:
-        return False
+    ans = c.execute('insert into logins values("' + uname + '", "' + pword + '");')
+    connection.commit()
     return True
-    connection.close()
-    
+
+        
