@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name 104.131.83.105 dailydos.ignorelist.com;
+    server_name 104.131.83.105 dailydos.me;
 
     location / {
         include proxy_params;

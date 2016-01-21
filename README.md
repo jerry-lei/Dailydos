@@ -11,11 +11,14 @@ Goals:
 
 - [x] Get flask running
 - [ ] Login system
-- [ ] Setup postfix
+- [x] Setup postfix
 - [ ] Database for tasks
 - [ ] Beautify
 
-The address we are currently using is [xtaskr.tk](http://xtaskr.tk).
+The address we are currently using is [dailydos.me](dailydos.me).
+E-mails go to (more might be added): 
+ * list@dailydos.me (general list)
+
 
 Team Roles:
 <table>
