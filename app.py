@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
+import sqlite3
 import login_utils
 application = Flask(__name__)
 
@@ -39,6 +40,10 @@ def home():
                     return session['user']
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
+
+@application.route("/testingpage")
+def test():
+    return "hello"
 
 
 if __name__=="__main__":

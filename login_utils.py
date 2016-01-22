@@ -20,3 +20,4 @@ def create_user(uname,pword):
     return True
 
         
+create_user("asdf@gmail.com", "asdfasdf")
