@@ -3,7 +3,7 @@ import sqlite3
 
 def authenticate(uname,pword):
     connection = sqlite3.connect("../login.db")
-    c = connection.cusor()
+    c = connection.cursor()
     ans = c.execute('select * from logins where username = "' + uname + '" and password = "' + pword + '";')
     for r in ans:
         return True
