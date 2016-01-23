@@ -21,3 +21,9 @@ def create_user(uname,pword):
 
         
 #create_user("asdf@gmail.com", "asdfasdf")
+
+
+#if authenticate("asdf@gmail.com", "asdfasdf"):
+#    print "authenticate works"
+#if authenticate("zcva@gmail.com", "asdxzaqwe") == False:
+#    print "did not authenticate because not created account"
