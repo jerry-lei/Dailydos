@@ -12,12 +12,12 @@ Goals:
 - [x] Get flask running
 - [ ] Login system
 - [x] Setup postfix
-- [ ] Database for tasks
+- [x] Database for tasks
 - [ ] Beautify
 
 The address we are currently using is [dailydos.me](dailydos.me).
-E-mails go to (more might be added): 
- * list@dailydos.me (general list)
+E-mails go to (more might be added): -- Subject is task
+ * group.dailydos.me (general list)
 
 
 Team Roles:
