@@ -17,7 +17,7 @@ Goals:
 
 The address we are currently using is [dailydos.me](dailydos.me).
 E-mails go to (more might be added): -- Subject is task
- * group.dailydos.me (general list)
+ * group@dailydos.me (general list)
 
 
 Team Roles:
