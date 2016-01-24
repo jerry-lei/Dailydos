@@ -1,0 +1,3 @@
+-Could not get script.sh to trigger on mail receive
+--Instead script.sh begins on start and loops every second
+---Only one task can be directed per second. If there is more than one, the first one gets put into database, second one gets wiped. 
