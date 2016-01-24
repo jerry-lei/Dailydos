@@ -10,3 +10,9 @@ LINKS USED:
 NOTES TO GROUP:
 \PM me for new login info
 \When updating any of the files on /home/group/Dailydos, '$ sudo reload dailydos'
+
+POSTFIX COMMANDS
+
+$sudo postalias /etc/aliases
+$mailq
+$postsuper -d ALL //removes mail from queue
