@@ -4,4 +4,5 @@
 ---Only one task can be directed per second. If there is more than one, the first one gets put into database, second one gets wiped. 
 
 2:
-A 400 Bad Request Error is generated when the user attempts to remove tasks. It worked before, but now needs to be fixed.
+A 400 Bad Request Error is generated when the user attempts to remove tasks on the dailydos.me address. If the site is accessed
+via its IP address, there is no such error.
