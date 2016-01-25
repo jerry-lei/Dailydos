@@ -22,10 +22,20 @@ text-decoration: none;
 </style>
 </head>
 <body>
-<h1>You have logged in</h1>
+<h1>Your Tasks</h1>
+
 <form method="post">
-    <div class = "container">
-        <input type="submit" name ="button" value="Add task">
-    </div>
+<hr>
+<br>
+<center><table width = "70%">
+{% for x in tasks %}
+<tr>
+	<th>
+		{{x[1]}}
+	</th>
+</tr>
+{% endfor %}
+</table></center>
 </form>
+</body>
 </html>

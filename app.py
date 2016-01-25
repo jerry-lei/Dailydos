@@ -49,7 +49,7 @@ def home():
                 
 @application.route("/tasks", methods=["GET","POST"])
 def tasks():
-    tasks_list = tasks_utils.get_tasks()
+    tasks_list = tasks_utils.get_tasks(session['user'])
     if session['logged_in'] == False:
         return redirect('/home')
     if request.method == "GET":
