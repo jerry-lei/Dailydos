@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, session
-import sqlite3
 import login_utils
 application = Flask(__name__)
 
 
 @application.route("/", methods=['GET','POST'])
+@application.route("/home", methods=['GET','POST'])
 def home():
 #    return render_template('home.html')
     if request.method=="GET":
@@ -18,8 +18,8 @@ def home():
             #password match check
             if (password == confirm):
                 #username and password lengths check
-                if len(user)<4:
-                    return render_template('home.html',errorC="Username must be longer than 4 characters")
+                if "@" not in user:
+                    return render_template('home.html',errorC="Username must be a valid email")
                 if len(password)<8:
                     return render_template('home.html',errorC="Password must be longer than 8 characters")
                 #account created successfully
@@ -31,22 +31,26 @@ def home():
             else:
                 return render_template('home.html',errorC="Passwords do not match")
         #Login
+        #if credentials valid, log them in with session
         if button == "Login":
             user = request.form['login_username']
             password = request.form['login_password']
             if login_utils.authenticate(user,password):
-                if 'user' not in session:
-                    session['user'] = user
-                    return session['user']
+                return redirect('/tasks')
+                #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
-
-@application.route("/testingpage")
-def test():
-    return "hello"
+                
+@application.route("/tasks", methods=["GET","POST"])
+def tasks()
+    if requesmethod == "GET":
+        return render_template("tasks.html")
+    if request.method == "POST":
+        return "hello"
 
 
 if __name__=="__main__":
+    application.debug = True
     application.run(host='0.0.0.0')
     """
     application.debug = True

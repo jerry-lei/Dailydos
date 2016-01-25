@@ -1,43 +1,157 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Login</h1>
-    <form method="POST">
-      Username (email):<br>
-      <input type="text" name="login_username">
-      <br>
-      Password:<br>
-      <input type="password" name="login_password">
-      <br>
-      <input type="submit" value="Login" id="button">
-    </form>
-    <h1>Signup</h1>
-    <form method="POST">
-      Username (email):<br>
-      <input type="text" name="new_username">
-      <br>
-      Password:<br>
-      <input type="password" name="new_password">
-      <br>
-      Confirm Password:<br>
-      <input type="password" name="new_confirm_password">
-      <br>
-      <input type="submit" value="Create Account" id="button">
-    </form>
-    {% if errorL %}
-    <div class = "error_login">
-      <font color = "red">{{errorL}}</font>
-    </div>
-    {% endif %}
-    {% if successC %}
-    <div class = "error_create">
-      <p><font color = "green">{{successC}}</font></p>
-    </div>
-    {% endif %}
-    {% if errorC %}
-    <div>
-      <p><font color = "red">{{errorC}}</font></p>
-    </div>
-    {% endif %}
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Daily Dos</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/
+ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="application/javascript">
+$(document).ready(function()
+{
+	
+$(".tab").click(function()
+{
+var X=$(this).attr('id');
+ 
+if(X=='signup')
+{
+$("#login").removeClass('select');
+$("#signup").addClass('select');
+$("#loginbox").slideUp();
+$("#signupbox").slideDown();
+}
+else
+{
+$("#signup").removeClass('select');
+$("#login").addClass('select');
+$("#signupbox").slideUp();
+$("#loginbox").slideDown();
+}
+ 
+});
+});
+</script>
+<style>
+body
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px; background-color:#6495ED; 
+}
+#container
+{
+	width:350px
+}
+#tabbox
+{
+	height:40px
+}
+#panel
+{
+	background-color:#FFF;
+	height:300px;
+	
+}
+.tab
+{
+background: #dedede;
+display: block;
+height: 40px;
+line-height: 40px;
+text-align: center;
+width: 80px;
+float: right;
+font-weight: bold;
+-webkit-border-top-left-radius: 0px;
+-webkit-border-top-right-radius: 30px;
+-moz-border-radius: 0px 30px 0px 0px;
+}
+a
+{
+color: #000;
+margin: 0;
+padding: 0;
+text-decoration: none;
+}
+.signup
+{
+	margin-left:8px;
+	
+}
+.select
+{
+	background-color:#FFF;
+	
+}
+#loginbox
+{
+	height:300px;
+	padding:10px;
+}
+#signupbox
+{
+	height:300px;
+	padding:10px;
+	display:none;
+}
+</style>
+</head>
+
+<body>
+<div style="margin:40px">
+<div id="container">
+<div id="tabbox">
+<a href="#" id="signup" class="tab signup">Signup</a>
+<a href="#" id="login" class="tab select">Login</a>
+</div>
+
+<div id="panel">
+<div id="loginbox">
+<h1>Login</h1>
+<form method="post">
+  Username (email):<br>
+  <input type="email" name="login_username">
+  <br>
+  Password:<br>
+  <input type="password" name="login_password">
+  <br>
+  <input id="button" name="button" type="submit" value="Login">
+</form>
+{% if errorL %}
+<div class = "error_login">
+<font color = "red">{{errorL}}</font>
+</div>
+{% endif %}
+</div>
+
+
+<div id="signupbox">
+<h1>Signup</h1>
+<form method="post">
+  Username:<br>
+  <input type="text" name="new_username">
+  <br>
+  Password:<br>
+  <input type="password" name="new_password">
+  <br>
+  Confirm Password:<br>
+  <input type="password" name="new_confirm_password">
+  <br>
+  <input id="button" name="button" type="submit" value="Create Account">
+</form>
+
+{% if successC %}
+<div class = "error_create">
+<p><font color = "green">{{successC}}</font></p>
+{% endif %}
+{% if errorC %}
+<p><font color = "red">{{errorC}}</font></p>
+</div>
+{% endif %}
+
+</div>
+</div>
+
+</div>
+</div>
+</body>
 </html>
