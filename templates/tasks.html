@@ -11,6 +11,7 @@ body
 font-family:Arial, Helvetica, sans-serif;
 font-size:12px; background-color:#F5F5F5; 
 text-align: center;
+background: #70dbdb;
 }
 {
 color: #000;
@@ -18,21 +19,33 @@ margin: 0;
 padding: 0;
 text-decoration: none;
 }
-
+div {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
+box-shadow: 0 2px 2px 0 #C2C2C2;
+border: 1px solid black;
+background: #C0D9D9;
+}
 </style>
 </head>
 <body>
-<h1>Your Tasks</h1>
+<image height="90" src="http://i.imgur.com/NcZJrwg.png"></image>
 
 <br>
+<div class="container">
 <form method="post">
 {% for row in tasks %}
+<div class="container">
 <input type="checkbox" name="checks" value="{{row}}">{{row}}<br>
+</div>
 {% endfor %}
 <input type="submit" id="button" name="button" value="Remove These">
 </form>
 <form method="post">
 <input type="submit" id="button" name="button" value="Clear All">
 </form>
+</div>
 </body>
 </html>
