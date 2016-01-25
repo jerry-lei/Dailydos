@@ -63,9 +63,10 @@ def logout():
     session['logged_in'] = False
     return redirect('/index')
 
+application.secret_key = "pleasework"
+
 if __name__=="__main__":
-    application.debug = True
-    application.secret_key = "plzDontFailUsZ"
+
     application.run(host='0.0.0.0')
     """
     application.debug = True
