@@ -82,6 +82,20 @@ text-decoration: none;
 	background-color:#FFF;
 	
 }
+
+{% if successC or errorC %}
+#loginbox
+{
+	height:300px;
+	padding:10px;
+	display:none;
+}
+#signupbox
+{
+	height:300px;
+	padding:10px;
+}
+{% else %}
 #loginbox
 {
 	height:300px;
@@ -93,6 +107,8 @@ text-decoration: none;
 	padding:10px;
 	display:none;
 }
+{% endif %}
+</div>
 </style>
 </head>
 
@@ -100,8 +116,13 @@ text-decoration: none;
 <div style="margin:40px">
 <div id="container">
 <div id="tabbox">
+{% if successC or errorC %}
+<a href="#" id="signup" class="tab select">Signup</a>
+<a href="#" id="login" class="tab login">Login</a>
+{% else %}
 <a href="#" id="signup" class="tab signup">Signup</a>
 <a href="#" id="login" class="tab select">Login</a>
+{% endif %}
 </div>
 
 <div id="panel">
