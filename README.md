@@ -1,5 +1,7 @@
 # DailyDos
 
+Video link: https://www.youtube.com/watch?v=UsjSrRELmkc
+
 Features:
 
  * Sign up/Log in to a to-do list.
@@ -12,7 +14,7 @@ Goals:
 - [x] Login system
 - [x] Setup postfix
 - [x] Database for tasks
-- [ ] Show the tasks
+- [x] Show the tasks
 - [ ] Beautify
 
 The address we are currently using is www.dailydos.me or 104.131.83.105.
