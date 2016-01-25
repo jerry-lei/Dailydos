@@ -36,14 +36,18 @@ def home():
             user = request.form['login_username']
             password = request.form['login_password']
             if login_utils.authenticate(user,password):
-                return redirect('/tasks')
+                return render_template('tasks.html')
                 #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
                 
 @application.route("/tasks", methods=["GET","POST"])
 def tasks():
+<<<<<<< HEAD
     if requesmethod == "GET":
+=======
+    if request.method == "GET":
+>>>>>>> e6a00d66388e7e1fdd0bdc3331b550a49f8421a7
         return render_template("tasks.html")
     if request.method == "POST":
         return "hello"
