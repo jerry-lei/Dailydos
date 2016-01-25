@@ -15,9 +15,10 @@ Goals:
 - [x] Setup postfix
 - [x] Database for tasks
 - [x] Show the tasks
-- [ ] Beautify
+- [x] Beautify
 
 The address we are currently using is www.dailydos.me or 104.131.83.105.
+<b>Highly recommended you use the IP Address, certain features cause www.dailydos.me to crash! </b>
 E-mails go to (more might be added): -- Subject is task
  * group@dailydos.me (general list)
 
