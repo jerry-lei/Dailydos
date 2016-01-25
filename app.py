@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, url_for
 import login_utils, tasks_utils
 application = Flask(__name__)
 
@@ -42,7 +42,7 @@ def home():
             if login_utils.authenticate(user,password):
                 session['user'] = user
                 session['logged_in'] = True
-                return render_template('tasks.html')
+                return redirect(url_for('tasks'))
                 #else renders login w/ error message
             else:
                 return render_template("home.html",errorL="Invalid Username or Password")
@@ -52,10 +52,11 @@ def tasks():
     tasks_list = tasks_utils.get_tasks(session['user'])
     if session['logged_in'] == False:
         return redirect('/home')
-    if request.method == "GET":
-        return render_template("tasks.html", tasks = tasks_list)
-    if request.method == "POST":
-        return render_template("tasks.html", tasks = tasks_list)
+    return render_template("tasks.html", tasks = tasks_list)
+#    if request.method == "GET":
+#        return render_template("tasks.html", tasks = tasks_list)
+#    if request.method == "POST":
+
 
 @application.route("/logout")
 def logout():
