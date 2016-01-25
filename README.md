@@ -1,21 +1,21 @@
-# DailyDOS
+# DailyDos
 
 Features:
 
- * Log in to a to-do list.
- * Subscribe to a teacher's e-mails.
- * E-mails that go to the application are put into the to-do lists of the accounts that are signed up to receive the sender's e-mails.
- * Teachers that are subscribed to by the students can send emails to the application and add to students' to-do lists.
+ * Sign up/Log in to a to-do list.
+ * Send an email to the group@dailydos.me
+ * The subject of the email will be listed as a task under the username
 
 Goals: 
 
 - [x] Get flask running
-- [ ] Login system
+- [x] Login system
 - [x] Setup postfix
 - [x] Database for tasks
+- [ ] Show the tasks
 - [ ] Beautify
 
-The address we are currently using is [dailydos.me](dailydos.me).
+The address we are currently using is www.dailydos.me or 104.131.83.105.
 E-mails go to (more might be added): -- Subject is task
  * group@dailydos.me (general list)
 
