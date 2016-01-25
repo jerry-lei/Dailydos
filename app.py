@@ -6,6 +6,10 @@ application = Flask(__name__)
 @application.route("/", methods=['GET','POST'])
 @application.route("/home", methods=['GET','POST'])
 def home():
+    if 'logged_in' not in session:
+        session['logged_in'] = False
+    if 'user' not in session:
+        session['user'] = 'Guest'
 #    return render_template('home.html')
     if request.method=="GET":
         return render_template('home.html')
@@ -36,6 +40,8 @@ def home():
             user = request.form['login_username']
             password = request.form['login_password']
             if login_utils.authenticate(user,password):
+                session['user'] = user
+                session['logged_in'] = True
                 return render_template('tasks.html')
                 #else renders login w/ error message
             else:
@@ -43,14 +49,22 @@ def home():
                 
 @application.route("/tasks", methods=["GET","POST"])
 def tasks():
+    if session['logged_in'] == False:
+        return redirect('/home')
     if request.method == "GET":
         return render_template("tasks.html")
     if request.method == "POST":
         return "hello"
 
+@application.route("/logout")
+def logout():
+    session['user'] = "Guest"
+    session['logged_in'] = False
+    return redirect('/index')
 
 if __name__=="__main__":
     application.debug = True
+    application.secret_key = "plzDontFailUsZ"
     application.run(host='0.0.0.0')
     """
     application.debug = True
