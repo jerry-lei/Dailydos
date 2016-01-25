@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
-import login_utils
+import login_utils, tasks_utils
 application = Flask(__name__)
 
 
@@ -49,12 +49,13 @@ def home():
                 
 @application.route("/tasks", methods=["GET","POST"])
 def tasks():
+    tasks_list = tasks_utils.get_tasks()
     if session['logged_in'] == False:
         return redirect('/home')
     if request.method == "GET":
-        return render_template("tasks.html")
+        return render_template("tasks.html", tasks = tasks_list)
     if request.method == "POST":
-        return "hello"
+        return render_template("tasks.html", tasks = tasks_list)
 
 @application.route("/logout")
 def logout():
