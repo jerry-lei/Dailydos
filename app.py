@@ -43,11 +43,7 @@ def home():
                 
 @application.route("/tasks", methods=["GET","POST"])
 def tasks():
-<<<<<<< HEAD
-    if requesmethod == "GET":
-=======
     if request.method == "GET":
->>>>>>> e6a00d66388e7e1fdd0bdc3331b550a49f8421a7
         return render_template("tasks.html")
     if request.method == "POST":
         return "hello"
