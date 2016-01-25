@@ -6,7 +6,9 @@ def authenticate(uname,pword):
     c = connection.cursor()
     ans = c.execute('SELECT * FROM logins where username = "' + uname + '" and password = "' + pword + '";')
     for r in ans:
+        print 1
         return True
+    print 0
     return False
 
 def create_user(uname,pword):
