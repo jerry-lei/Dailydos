@@ -18,4 +18,24 @@ def get_tasks(user):
                 i+=1
         return temp2
 
+def remove_tasks(task_list):
+        if len(task_list) > 0:
+                conn = sqlite3.connect("tasks.db")
+                c = conn.cursor()
+                for item in task_list: 
+                        c.execute('DELETE FROM tasks WHERE task="' + item + '";')
+                conn.commit()
+                conn.close()
+                
+
+def clear_tasks(user):
+        conn = sqlite3.connect("tasks.db")
+        c = conn.cursor()
+        c.execute('DELETE FROM tasks WHERE email="' + user + '";')
+        conn.commit()
+        conn.close()                              
+
+#temp = ['cheese', 'try 3', 'try again 217']
+#remove_tasks(temp)
+
 #print get_tasks("jerrylei98@gmail.com")

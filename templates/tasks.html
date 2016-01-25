@@ -8,10 +8,10 @@
 
 body
 {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px; background-color:#F5F5F5; 
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px; background-color:#F5F5F5; 
+text-align: center;
 }
-a
 {
 color: #000;
 margin: 0;
@@ -25,10 +25,14 @@ text-decoration: none;
 <h1>Your Tasks</h1>
 
 <br>
-<ul>
+<form method="post">
 {% for row in tasks %}
-<li>{{row}}</li>
+<input type="checkbox" name="checks" value="{{row}}">{{row}}<br>
 {% endfor %}
-</ul>
+<input type="submit" id="button" name="button" value="Remove These">
+</form>
+<form method="post">
+<input type="submit" id="button" name="button" value="Clear All">
+</form>
 </body>
 </html>

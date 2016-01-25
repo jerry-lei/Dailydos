@@ -52,17 +52,37 @@ def tasks():
     tasks_list = tasks_utils.get_tasks(session['user'])
     if session['logged_in'] == False:
         return redirect('/home')
-    return render_template("tasks.html", tasks = tasks_list)
-#    if request.method == "GET":
-#        return render_template("tasks.html", tasks = tasks_list)
-#    if request.method == "POST":
-
+    if request.method == "GET":
+        return render_template("tasks.html", tasks = tasks_list)
+    if request.method == "POST":
+        button = request.form['button']
+        if button == "Remove These":
+            #page_ids = request.form.get("do_delete")
+            checked = request.form.getlist("checks")
+            #checked = []
+            #for items in request.form.get("do_delete"):
+            #    checked.append(items)
+            #selected = bool(checked)
+            #f = open('log_file', 'w')
+            #for keys in selected:
+            #    f.write(selected)
+            #f.close()
+            
+            tasks_utils.remove_tasks(checked)
+            tasks_list = tasks_utils.get_tasks(session['user'])
+            return render_template("tasks.html", tasks = tasks_list)
+        if button == "Clear All":
+            tasks_utils.clear_tasks(session['user'])
+            tasks_list = tasks_utils.get_tasks(session['user'])
+            return render_template("tasks.html", tasks = tasks_list)
+        else:
+            return render_template("tasks.html", tasks = tasks_list)
 
 @application.route("/logout")
 def logout():
     session['user'] = "Guest"
     session['logged_in'] = False
-    return redirect('/index')
+    return redirect('/home')
 
 application.secret_key = "pleasework"
 
