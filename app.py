@@ -42,7 +42,7 @@ def home():
                 return render_template("home.html",errorL="Invalid Username or Password")
                 
 @application.route("/tasks", methods=["GET","POST"])
-def tasks()
+def tasks():
     if requesmethod == "GET":
         return render_template("tasks.html")
     if request.method == "POST":
@@ -50,7 +50,6 @@ def tasks()
 
 
 if __name__=="__main__":
-    application.debug = True
     application.run(host='0.0.0.0')
     """
     application.debug = True
